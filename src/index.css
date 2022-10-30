@@ -11,12 +11,83 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
-
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: flex-start;
-  min-height: 100vh;
+} */
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.NewContact, .EditContact, .Home, .ContactPage, .ErrorPage, .ContactShowcase {
+  width: 100%;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: none !important;
+}
+
+.container {
+  width: 500px !important;
+}
+
+.Header {
+  width: 100%;
+}
+
+.search-input-label {
+  position: absolute;
+  left: -9999999px;
+}
+
+.contact-initial {
+  background-color: crimson;
+  color: white;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.contact-p:hover {
+  color: crimson;
+}
+
+/* Contact Showcase styling */
+.contactBanner {
+  background-color: crimson;
+  color: white;
+  padding-top: 30px !important;
+}
+
+.bannerInitial {
+  font-size: 3em;
+  padding: 4px 17px 4px 17px !important;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: rgb(236, 97, 125);
+}
+
+.bannerName {
+  font-size: 1.5em;
+}
