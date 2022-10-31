@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { FaPhone, FaFacebookMessenger, FaBell, FaPhoneAlt, FaShareAlt, FaPenAlt, FaWhatsapp } from "react-icons/fa";
+import { FaPhone, FaFacebookMessenger, FaBell , FaPhoneAlt, FaShareAlt, FaPenAlt, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ContactShowcase = ({ contacts }) => {
@@ -19,6 +19,8 @@ const ContactShowcase = ({ contacts }) => {
                 <p><span>{<FaWhatsapp />}</span> Voice call {contact.number} </p>
                 <p><span>{<FaWhatsapp />}</span> Video call {contact.number} </p>
                 <p><span>{<FaWhatsapp />}</span> Message {contact.number} </p>
+                <p className="my-3 lead">Groups and Ringtone</p>
+                <p><span>{<FaBell  />}</span> Default ringtone</p>
             </>
         }
         {!contact &&
