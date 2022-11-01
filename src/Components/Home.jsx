@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Feed from "./Feed";
+import PageFooter from "./PageFooter";
 
 const Home = ({ contacts }) => {
   return (
@@ -9,6 +11,7 @@ const Home = ({ contacts }) => {
           There are no contacts available
         </p>
       }
+      <Link to="/new"><PageFooter /></Link>
     </main>
   )
 }

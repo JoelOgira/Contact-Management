@@ -1,7 +1,7 @@
 const NewContact = () => {
     return (
-      <main className="NewContact">
-  
+      <main className="NewContact container">
+        
       </main>
     )
   }

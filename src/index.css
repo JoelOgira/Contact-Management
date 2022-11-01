@@ -44,6 +44,10 @@ a {
   color: black;
 }
 
+ul {
+  list-style: none;
+}
+
 a:hover {
   color: none !important;
 }
@@ -90,4 +94,23 @@ a:hover {
 
 .bannerName {
   font-size: 1.5em;
+}
+
+.phoneIcon, .whatsappIcon, .messengerIcon, .bellIcon {
+  margin: 5px 10px;
+}
+
+.phoneIcon {
+  color: crimson;
+}
+
+.whatsappIcon {
+  color: rgb(23, 145, 23);
+}
+
+/* Footers Styling */
+.PageFooter {
+  position: sticky;
+  top: 100%;
+
 }

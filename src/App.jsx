@@ -6,9 +6,9 @@ import api from "./api/contact"
 import Home from "./Components/Home";
 import ErrorPage from "./Components/ErrorPage";
 import EditContact from "./Components/EditContact";
-import ContactPage from "./Components/ContactPage";
 import Header from "./Components/Header";
 import ContactShowcase from "./Components/ContactShowcase";
+import NewContact from "./Components/NewContact";
 
 
 
@@ -42,12 +42,23 @@ useEffect(() => {
   fetchContacts();
 }, []);
 
+const handleDelete = async (id) => {
+  try {
+    await api.delete(`/contacts/${id}`);
+    setContacts(contacts.filter(contact => contact.id !== id));
+    history('/');
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
   return (
     <div className="App container">
       <Header search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Home contacts={searchContacts} />} />
-        <Route path="/contact/:id" element={<ContactShowcase contacts={contacts} />} />
+        <Route path="/new" element={<NewContact />} />
+        <Route path="/contact/:id" element={<ContactShowcase contacts={contacts} handleDelete={handleDelete} />} />
         <Route path="/edit/:id" element={<EditContact />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
