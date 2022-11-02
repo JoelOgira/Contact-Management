@@ -13,6 +13,13 @@
       "firstName": "Stephen",
       "surName": "Kalonzo Musyoka",
       "number": "0712345678"
+    },
+    {
+      "id": 5,
+      "name": "John Doe",
+      "firstName": "John",
+      "surName": "Doe",
+      "number": "07122200022"
     }
   ]
 }

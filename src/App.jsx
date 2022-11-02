@@ -17,6 +17,10 @@ const App = () => {
 const [contacts, setContacts] = useState([]);
 const [searchContacts, setSearchContacts] = useState([]);
 const [search, setSearch] = useState('');
+const [name, setName] = useState('');
+const [firstName, setFirstName] = useState('');
+const [surName, setSurName] = useState('');
+const [number, setNumber] = useState('');
 
 
 const history = useNavigate();
@@ -42,6 +46,23 @@ useEffect(() => {
   fetchContacts();
 }, []);
 
+const addContact = async (e) => {
+  e.preventDefault();
+  const id = contacts.length ? contacts[contacts.length - 1 ].id + 1 : 1;
+  const newContact = {id, name, firstName, surName, number};
+  try {
+    const response = await api.post('/contacts', newContact);
+    setContacts([...contacts, response.data]);
+    setName('');
+    setFirstName('');
+    setSurName('');
+    setNumber('');
+    history('/');
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
 const handleDelete = async (id) => {
   try {
     await api.delete(`/contacts/${id}`);
@@ -57,7 +78,7 @@ const handleDelete = async (id) => {
       <Header search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Home contacts={searchContacts} />} />
-        <Route path="/new" element={<NewContact />} />
+        <Route path="/new" element={<NewContact name={name} setName={setName} firstName={firstName} setFirstName={setFirstName} surName={surName} setSurName={setSurName} number={number} setNumber={setNumber} addContact={addContact} />} />
         <Route path="/contact/:id" element={<ContactShowcase contacts={contacts} handleDelete={handleDelete} />} />
         <Route path="/edit/:id" element={<EditContact />} />
         <Route path="*" element={<ErrorPage />} />
