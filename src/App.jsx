@@ -21,6 +21,10 @@ const [name, setName] = useState('');
 const [firstName, setFirstName] = useState('');
 const [surName, setSurName] = useState('');
 const [number, setNumber] = useState('');
+const [editName, setEditName] = useState('');
+const [editFirstName, setEditFirstName] = useState('');
+const [editSurName, setEditSurName] = useState('');
+const [editNumber, setEditNumber] = useState('');
 
 
 const history = useNavigate();
@@ -63,6 +67,21 @@ const addContact = async (e) => {
   }
 }
 
+const handleEdit = async (id) => {
+  const editedContacts = {id, name: editName, firstName: editFirstName, surName: editSurName, number: editNumber};
+  try {
+    const response = await api.put(`/contacts/${id}`, editedContacts);
+    setContacts(contacts.map(contact => contact.id === id ? { ...response.data} : contact));
+    setEditName('');
+    setEditFirstName('');
+    setEditSurName('');
+    setEditNumber('');
+    history('/');
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 const handleDelete = async (id) => {
   try {
     await api.delete(`/contacts/${id}`);
@@ -80,7 +99,7 @@ const handleDelete = async (id) => {
         <Route path="/" element={<Home contacts={searchContacts} />} />
         <Route path="/new" element={<NewContact name={name} setName={setName} firstName={firstName} setFirstName={setFirstName} surName={surName} setSurName={setSurName} number={number} setNumber={setNumber} addContact={addContact} />} />
         <Route path="/contact/:id" element={<ContactShowcase contacts={contacts} handleDelete={handleDelete} />} />
-        <Route path="/edit/:id" element={<EditContact />} />
+        <Route path="/edit/:id" element={<EditContact handleEdit={handleEdit} contacts={contacts} editName={editName} setEditName={setEditName} editFirstName={editFirstName} setEditFirstName={setEditFirstName} editSurName={editSurName} setEditSurName={setEditSurName} editNumber={editNumber} setEditNumber={setEditNumber} />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

@@ -16,29 +16,29 @@ const NewContact = ({
       <input 
         type="text" 
         required
-        className="form-control"
+        className="form-control mb-3"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <label htmlFor="Add First Name">firstname</label>
+      <label htmlFor="Add First Name">First Name</label>
       <input 
         type="text" 
-        className="form-control"
+        className="form-control mb-3"
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
       />
-      <label htmlFor="Add Sur Name">surname</label>
+      <label htmlFor="Add Sur Name">Sur Name</label>
       <input 
         type="text" 
-        className="form-control"
+        className="form-control mb-3"
         value={surName}
         onChange={(e) => setSurName(e.target.value)}
       />
-      <label htmlFor="Add Name">Name</label>
+      <label htmlFor="Add Number">Number</label>
       <input 
         type="text" 
         required
-        className="form-control"
+        className="form-control mb-3"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />

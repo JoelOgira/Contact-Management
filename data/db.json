@@ -5,7 +5,7 @@
       "name": "Ruto",
       "firstName": "William",
       "surName": "Ruto",
-      "number": "0712345678"
+      "number": "+254712345679"
     },
     {
       "id": 4,
@@ -20,6 +20,13 @@
       "firstName": "John",
       "surName": "Doe",
       "number": "07122200022"
+    },
+    {
+      "id": 6,
+      "name": "James Waithera",
+      "firstName": "James",
+      "surName": "",
+      "number": "+254709876254"
     }
   ]
 }

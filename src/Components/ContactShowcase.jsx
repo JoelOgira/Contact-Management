@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { FaPhone, FaFacebookMessenger, FaBell, FaPhoneAlt, FaShareAlt, FaPenAlt, FaWhatsapp, FaTrashAlt } from "react-icons/fa";
+import { FaFacebookMessenger, FaBell, FaPhoneAlt, FaShareAlt, FaPenAlt, FaWhatsapp, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ContactShowcase = ({ contacts, handleDelete }) => {
@@ -21,7 +21,9 @@ const ContactShowcase = ({ contacts, handleDelete }) => {
                 <p><span>{<FaWhatsapp className="whatsappIcon" />}</span> Message {contact.number} </p>
                 <p className="my-3 lead">Groups and Ringtone</p>
                 <p><span>{<FaBell className="bellIcon" />}</span> Default ringtone</p>
+                <button className="btn">{<FaShareAlt />}</button>
                 <button className="btn btn-outline-danger" onClick={() => handleDelete(contact.id)}><FaTrashAlt /></button>
+                <Link to={`/edit/${contact.id}`}><button className="btn btn-outline-success">{<FaPenAlt />}</button></Link> 
             </>
         }
         {!contact &&
