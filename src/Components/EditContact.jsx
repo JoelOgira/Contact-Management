@@ -61,8 +61,10 @@ const EditContact = ({
         }
         {!editName &&
           <>
-            <p className="my-4 text-center">Ooops! There was an error</p>
-            <Link to="/" className="text-center">Go back to Contacts</Link>
+            <div className="card">
+              <h2 className="card-title">Ooops! There was an Error</h2>
+              <Link to="/"><p className="card-text">Go back to Contacts</p></Link>
+            </div>
           </>
         }
       </main>

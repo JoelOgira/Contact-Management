@@ -11,7 +11,7 @@ const Home = ({ contacts }) => {
           There are no contacts available
         </p>
       }
-      <Link to="/new"><PageFooter /></Link>
+      <Link to="/new"><PageFooter className="addButton my-4" /></Link>
     </main>
   )
 }

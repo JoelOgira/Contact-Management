@@ -27,6 +27,13 @@
       "firstName": "James",
       "surName": "",
       "number": "+254709876254"
+    },
+    {
+      "id": 7,
+      "name": "Martin Luther",
+      "firstName": "King",
+      "surName": "Junior",
+      "number": "0789654235"
     }
   ]
 }
