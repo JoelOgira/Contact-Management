@@ -108,6 +108,10 @@ a:hover {
   color: rgb(23, 145, 23);
 }
 
+.shareBtn, .deleteBtn, .editBtn {
+  margin: 10px;
+}
+
 /* Footers Styling */
 .PageFooter {
   position: sticky;
