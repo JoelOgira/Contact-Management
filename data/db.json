@@ -1,13 +1,6 @@
 {
   "contacts": [
     {
-      "id": 3,
-      "name": "Ruto",
-      "firstName": "William",
-      "surName": "Ruto",
-      "number": "+254712345679"
-    },
-    {
       "id": 4,
       "name": "Kalonzo",
       "firstName": "Stephen",
@@ -34,6 +27,13 @@
       "firstName": "King",
       "surName": "Junior",
       "number": "0789654235"
+    },
+    {
+      "id": 8,
+      "name": "Kwangwaru",
+      "firstName": "",
+      "surName": "",
+      "number": "+255709367487"
     }
   ]
 }
