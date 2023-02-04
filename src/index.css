@@ -85,7 +85,7 @@ a:hover {
 }
 
 .bannerInitial {
-  font-size: 3em;
+  font-size: 4rem;
   padding: 4px 17px 4px 17px !important;
   border: 2px solid white;
   border-radius: 50%;
@@ -93,11 +93,12 @@ a:hover {
 }
 
 .bannerName {
-  font-size: 1.5em;
+  font-size: 2rem;
 }
 
 .phoneIcon, .whatsappIcon, .messengerIcon, .bellIcon {
   margin: 5px 10px;
+  font-size: 1.5rem;
 }
 
 .phoneIcon {
@@ -106,6 +107,12 @@ a:hover {
 
 .whatsappIcon {
   color: rgb(23, 145, 23);
+}
+
+.messengerIcon {
+  color: purple;
+  float: right;
+  margin-right: 2rem;
 }
 
 .shareBtn, .deleteBtn, .editBtn {
