@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import format from "date-fns/format";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import api from "./api/contact"
 import Home from "./Components/Home";
@@ -9,7 +8,7 @@ import EditContact from "./Components/EditContact";
 import Header from "./Components/Header";
 import ContactShowcase from "./Components/ContactShowcase";
 import NewContact from "./Components/NewContact";
-
+import useAxiosFetch from "./Hooks/useAxiosFetch";
 
 
 const App = () => {
@@ -25,6 +24,11 @@ const [editName, setEditName] = useState('');
 const [editFirstName, setEditFirstName] = useState('');
 const [editSurName, setEditSurName] = useState('');
 const [editNumber, setEditNumber] = useState('');
+const {data, fetchError, isLoading} = useAxiosFetch('http://localhost:6900/contacts');
+
+useEffect(() => {
+  setContacts(data);
+}, [data])
 
 
 const history = useNavigate();
@@ -35,20 +39,12 @@ useEffect(() => {
     ||  ((contact.surName).toLowerCase().includes(search.toLowerCase()))
     ||  ((contact.number).toLowerCase().includes(search.toLowerCase()))
   )
-  setSearchContacts(filteredContacts);
+  setSearchContacts(filteredContacts.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    return 1;
+  }));
 }, [contacts, search])
 
-useEffect(() => {
-  const fetchContacts = async () => {
-    try {
-      const response = await api.get('/contacts');
-      setContacts(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  fetchContacts();
-}, []);
 
 const addContact = async (e) => {
   e.preventDefault();
@@ -96,7 +92,7 @@ const handleDelete = async (id) => {
     <div className="App container">
       <Header search={search} setSearch={setSearch} />
       <Routes>
-        <Route path="/" element={<Home contacts={searchContacts} />} />
+        <Route path="/" element={<Home contacts={searchContacts} fetchError={fetchError} isLoading={isLoading} />} />
         <Route path="/new" element={<NewContact name={name} setName={setName} firstName={firstName} setFirstName={setFirstName} surName={surName} setSurName={setSurName} number={number} setNumber={setNumber} addContact={addContact} />} />
         <Route path="/contact/:id" element={<ContactShowcase contacts={contacts} handleDelete={handleDelete} />} />
         <Route path="/edit/:id" element={<EditContact handleEdit={handleEdit} contacts={contacts} editName={editName} setEditName={setEditName} editFirstName={editFirstName} setEditFirstName={setEditFirstName} editSurName={editSurName} setEditSurName={setEditSurName} editNumber={editNumber} setEditNumber={setEditNumber} />} />
