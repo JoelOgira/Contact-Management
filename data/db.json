@@ -34,6 +34,20 @@
       "firstName": "",
       "surName": "",
       "number": "+255709367487"
+    },
+    {
+      "id": 9,
+      "name": "Patrick",
+      "firstName": "Patrick",
+      "surName": "Waithera",
+      "number": "07654324667"
+    },
+    {
+      "id": 10,
+      "name": "Alice",
+      "firstName": "Alice",
+      "surName": "Wahome",
+      "number": "0789654345"
     }
   ]
 }
