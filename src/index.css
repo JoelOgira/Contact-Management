@@ -68,6 +68,8 @@ a:hover {
 .contact-initial {
   background-color: crimson;
   color: white;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   margin-right: 15px;
   font-size: 20px;
